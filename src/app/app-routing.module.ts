@@ -1,3 +1,5 @@
+import { AddUserComponent } from './add-user/add-user.component';
+import { LoginComponent } from './login/login.component';
 import { ListuserComponent } from './listuser/listuser.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +13,10 @@ const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'profil', component: ProfilComponent },
   { path: 'profil/update', component: UpdateuserComponent },
-  { path: 'list', component: ListuserComponent}
+  { path: 'list', component: ListuserComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'add', component:AddUserComponent}
+
 ];
 
 @NgModule({

@@ -1,0 +1,48 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div id="container">
+    <form #formulaire="ngForm">
+        <div class="form-group">
+            <label for="name">Nom :</label>
+            <input required id="name" class="form-control" type="text" ngModel name="name">
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Prenom :</label>
+            <input  requiredid="firstname" class="form-control" type="text" ngModel name="firstname">
+        </div>
+    
+        <div class="form-group">
+            <label for="cin">CIN :</label>
+            <input required id="cin" class="form-control" type="number" ngModel name="cin">
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Âge :</label>
+            <input required id="age" class="form-control" type="number" min="0" max="70" ngModel name="age">
+        </div>
+        
+        <div class="form-group">
+            <label for="job">Poste :</label>
+            <input required id="job" class="form-control" type="text" ngModel name="job">
+        </div>
+        
+        <div class="form-group">
+            <label for="salaire">Salaire :</label>
+            <input required id="salaire" class="form-control" type="number" ngModel name="poste">
+        </div>
+
+        <div class="form-group">
+            <label for="date_emb">Date d'embauche :</label>
+            <input required id="date_emb" class="form-control" type="date" ngModel name="date_emb">
+        </div>
+
+        <div class="form-group">
+            <label for="path">Path :</label>
+            <input id="path" class="form-control" type="text" ngModel name="path">
+        </div>
+        
+        <button [disabled]="formulaire.invalid" class="btn btn-primary" type="submit" (click)="addUser(formulaire)">Envoyer</button>
+    </form>
+</div>

@@ -12,6 +12,11 @@ import { ProfilComponent } from './profil/profil.component';
 import { UserComponent } from './user/user.component';
 import { UpdateuserComponent } from './updateuser/updateuser.component';
 import { ListuserComponent } from './listuser/listuser.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { AddUserComponent } from './add-user/add-user.component';
+
 
 @NgModule({
   declarations: [
@@ -24,11 +29,15 @@ import { ListuserComponent } from './listuser/listuser.component';
     ProfilComponent,
     UserComponent,
     UpdateuserComponent,
-    ListuserComponent
+    ListuserComponent,
+    LoginComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

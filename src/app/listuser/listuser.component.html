@@ -30,74 +30,29 @@
                         </th>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let User of users">
                             <td>
-                                {{users[0].id}}
+                                {{User.id}}
                             </td>
                             <td>
-                                {{users[0].nom}}
+                                {{User.nom}}
                             </td>
                             <td>
-                                {{users[0].prenom}}
+                                {{User.prenom}}
                             </td>
                             <td>
-                                {{users[0].cin}}
+                                {{User.cin}}
                             </td>
                             <td>
-                                {{users[0].age}}
+                                {{User.age}}
                             </td>
                             <td>
-                                {{users[0].salaire}}
+                                {{User.salaire}}
                             </td>
                             <td>
-                                {{users[0].date_emb}}
+                                {{User.date_emb}}
                             </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{users[1].id}}
-                            </td>
-                            <td>
-                                {{users[1].nom}}
-                            </td>
-                            <td>
-                                {{users[1].prenom}}
-                            </td>
-                            <td>
-                                {{users[1].cin}}
-                            </td>
-                            <td>
-                                {{users[1].age}}
-                            </td>
-                            <td>
-                                {{users[1].salaire}}
-                            </td>
-                            <td>
-                                {{users[1].date_emb}}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                {{users[2].id}}
-                            </td>
-                            <td>
-                                {{users[2].nom}}
-                            </td>
-                            <td>
-                                {{users[2].prenom}}
-                            </td>
-                            <td>
-                                {{users[2].cin}}
-                            </td>
-                            <td>
-                                {{users[2].age}}
-                            </td>
-                            <td>
-                                {{users[2].salaire}}
-                            </td>
-                            <td>
-                                {{users[2].date_emb}}
-                            </td>
+                            <button class="btn-danger" (click)="deleteUser()"><i class="fa fa-times"></i></button>
                         </tr>
                     </tbody>
                 </table>
