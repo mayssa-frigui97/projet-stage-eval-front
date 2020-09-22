@@ -1,0 +1,87 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div id="container">
+    <form #formulaire="ngForm">
+        <div class="form-group">
+            <label for="username">Nom utilisateur:</label>
+            <input required id="username" class="form-control" type="text" ngModel name="username">
+        </div>
+        <div class="form-group">
+            <label for="password">Mot de passe:</label>
+            <input required id="password" class="form-control" type="password" ngModel name="password">
+        </div>
+        <div class="form-group">
+            <label for="nom">Nom :</label>
+            <input required id="nom" class="form-control" type="text" ngModel name="nom">
+        </div>
+        
+        <div class="form-group">
+            <label for="firstname">Prenom :</label>
+            <input  requiredid="firstname" class="form-control" type="text" ngModel name="prenom">
+        </div>
+    
+        <div class="form-group">
+            <label for="cin">CIN :</label>
+            <input required id="cin" class="form-control" type="number" ngModel name="cin">
+        </div>
+        
+        <div class="form-group">
+            <label for="age">Âge :</label>
+            <input required id="age" class="form-control" type="number" min="0" max="70" ngModel name="age">
+        </div>
+        
+        <div class="form-group">
+            <label for="job">Poste :</label>
+            <input required id="job" class="form-control" type="text" ngModel name="poste">
+        </div>
+        
+        <div class="form-group">
+            <label for="salaire">Salaire :</label>
+            <input required id="salaire" class="form-control" type="number" ngModel name="salaire">
+        </div>
+
+        <div class="form-group">
+            <label for="date_emb">Date d'embauche :</label>
+            <input required id="date_emb" class="form-control" type="date" ngModel name="date_emb">
+        </div>
+
+        <div class="form-group">
+            <label for="path">Avatar :</label>
+            <input id="path" class="form-control" type="text" ngModel name="path">
+        </div>
+       <!-- <div class="form-group">
+            <label for="role">Rôle :</label>
+            <input id="role" class="form-control" type="radio" ngModel name="role">
+        </div>!-->
+         <!--<label for="role">Rôle :</label>
+        <mat-radio-group aria-label="Select an option" ngModel name="role">
+            <mat-radio-button value="SUPER"> Super </mat-radio-button>
+            <mat-radio-button value="RH"> RH </mat-radio-button>
+            <mat-radio-button value="RP"> Responsable pôle </mat-radio-button>
+            <mat-radio-button value="COLABORATEUR"> Colaborateur </mat-radio-button>
+        </mat-radio-group><br><br>
+        <mat-form-field appearance="fill" ngModel name="role">
+            <mat-label>Rôle :</mat-label>
+            <select matNativeControl required>
+              <option value="SUPER">Super</option>
+              <option value="RH">RH</option>
+              <option value="RP">Responsable pôle </option>
+              <option value="COLABORATEUR">Colaborateur </option>
+            </select>
+          </mat-form-field>
+        <div class="btn1">
+            <select name="role" id="role">
+                <option value="SUPER">Super</option>
+                <option value="RH">RH</option>
+                <option value="RP">Responsable pôle </option>
+                <option value="COLABORATEUR">Colaborateur </option>
+            </select>
+        </div>!-->
+        <div class="form-group">
+            <label for="pole">Pôle :</label>
+            <input id="pole" class="form-control" type="number" ngModel name="pole">
+        </div>
+        <button [disabled]="formulaire.invalid" class="btn btn-primary" type="submit" (click)="addUser(formulaire)">Envoyer</button>
+    </form>
+</div>

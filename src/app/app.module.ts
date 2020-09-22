@@ -1,21 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderNavComponent } from './header-nav/header-nav.component';
-import { HeaderSidebarComponent } from './header-sidebar/header-sidebar.component';
-import { FooterComponent } from './footer/footer.component';
-import { ProxymComponent } from './proxym/proxym.component';
-import { MapComponent } from './map/map.component';
-import { ProfilComponent } from './profil/profil.component';
-import { UserComponent } from './user/user.component';
-import { UpdateuserComponent } from './updateuser/updateuser.component';
-import { ListuserComponent } from './listuser/listuser.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { AddUserComponent } from './add-user/add-user.component';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderNavComponent } from './components/header-nav/header-nav.component';
+import { HeaderSidebarComponent } from './components/header-sidebar/header-sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ProxymComponent } from './components/proxym/proxym.component';
+import { ProfilComponent } from './components/profil/profil.component';
+import { UserComponent } from './components/user/user.component';
+import { UpdateuserComponent } from './components/updateuser/updateuser.component';
+import { ListuserComponent } from './components/listuser/listuser.component';
+import { LoginComponent } from './components/login/login.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 
 @NgModule({
@@ -25,7 +23,6 @@ import { AddUserComponent } from './add-user/add-user.component';
     HeaderSidebarComponent,
     FooterComponent,
     ProxymComponent,
-    MapComponent,
     ProfilComponent,
     UserComponent,
     UpdateuserComponent,
