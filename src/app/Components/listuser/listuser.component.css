@@ -1,3 +1,15 @@
-button.delete {
+button.delete , button.update{
     position: relative;
+    color:rgba(194, 189, 189, 0.747);
   }
+.fa{
+  width: 35px;
+  height: 35px;
+  font-size: medium;
+}
+button{
+  background-color: rgb(26, 32, 53);
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+}

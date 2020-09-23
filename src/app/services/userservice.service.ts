@@ -11,6 +11,7 @@ import { User } from '../model/user';
 export class UserserviceService {
 
   Users: User[];
+  
 
   constructor(private http: HttpClient) {
    }
@@ -29,9 +30,13 @@ export class UserserviceService {
     return this.http.get<User[]> (`${environment.apiUrl}/users`, this.httpOptions);
   }
 
+  getUser(id : number){
+    return this.http.get<User>(`${environment.apiUrl}/users`,this.httpOptions);
+  }
+
   addUser(credentials):Observable<any>{
     console.log(credentials);
-    return this.http.post(`${environment.apiUrl}/users`,credentials);
+    return this.http.post(`${environment.apiUrl}/users`,credentials, this.httpOptions);
   }
 /*
   addUser(User: User): Observable<User> {
@@ -64,13 +69,23 @@ private handleError<T>(operation = 'operation', result?: T) {//????
   };
 }
 
-  // deleteUser(user: User | number): Observable<User> {
-  //   const id = typeof User === 'number' ? user : user.id;
-  //   const url = `${environment.apiUrl}/users/${id}`;
+  deleteUser(user: User | number): Observable<User> {
+    const id = typeof user === 'number' ? user : user.id;
+    const url = `${environment.apiUrl}/users/${id}`;
   
-  //   return this.http.delete<User>(url, this.httpOptions).pipe(
-  //     tap(_ => console.log(`deleted User id=${id}`)),
-  //     catchError(this.handleError<User>('deleteUser'))
-  //   );
-  // }
+    return this.http.delete<User>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted User id=${id}`)),
+      catchError(this.handleError<User>('deleteUser'))
+    );
+  }
+
+  updateUser(user: User| number): Observable<User> {
+    const id = typeof user === 'number' ? user : user.id;
+    const url = `${environment.apiUrl}/users/${id}`;
+  
+    return this.http.patch<User>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`update User id=${id}`)),
+      catchError(this.handleError<User>('updateUser'))
+    );
+  }
 }

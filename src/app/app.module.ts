@@ -14,6 +14,10 @@ import { UpdateuserComponent } from './components/updateuser/updateuser.componen
 import { ListuserComponent } from './components/listuser/listuser.component';
 import { LoginComponent } from './components/login/login.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { SuperComponent } from './Components/super/super.component';
+import { RhComponent } from './Components/rh/rh.component';
+import { RpComponent } from './Components/rp/rp.component';
+import { ColaborateurComponent } from './Components/colaborateur/colaborateur.component';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import { AddUserComponent } from './components/add-user/add-user.component';
     UpdateuserComponent,
     ListuserComponent,
     LoginComponent,
-    AddUserComponent
+    AddUserComponent,
+    SuperComponent,
+    RhComponent,
+    RpComponent,
+    ColaborateurComponent
   ],
   imports: [
     BrowserModule,

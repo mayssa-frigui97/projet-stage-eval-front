@@ -8,9 +8,10 @@ import { ProxymComponent } from './components/proxym/proxym.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/signin', pathMatch: 'full' },/*par defaut*/
   { path: 'proxym', component: ProxymComponent },
   { path: 'profil', component: ProfilComponent },
-  { path: 'profil/update', component: UpdateuserComponent },
+  { path: 'list/update', component: UpdateuserComponent },
   { path: 'list', component: ListuserComponent},
   { path: 'signin', component: LoginComponent},
   { path: 'add', component: AddUserComponent}

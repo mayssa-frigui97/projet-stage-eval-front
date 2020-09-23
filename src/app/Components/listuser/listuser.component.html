@@ -80,9 +80,10 @@
                                 {{user.role}}
                             </td>
                             <td>
-                                {{user.pole}}
+                                {{user.pole.nom}}
                             </td>
-                            <button class="btn-danger delete" (click)="deleteuser(user)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                            <button class=" delete" (click)="deleteuser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            <button class=" update" [routerLink]="['update']" (click)="updateuser(user)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
                         </tr>
                     </tbody>
                 </table>

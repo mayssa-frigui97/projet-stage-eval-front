@@ -23,23 +23,36 @@ export class ListuserComponent implements OnInit {
         this.users=users;
       },
       (error) => {
-        alert(`Problème de connexion à votre serveur. Prière de consulter l'administrateur. Les données affichées sont fakes.`);
+        alert(`Problème de connexion à votre serveur.`);
         console.log(error);
       }
     );
   }
 
-  // deleteUser(User: user){
-  //   this.users = this.users.filter(u => u !== User);
-  //   this.userserviceService.deleteUser(User).subscribe(
-  //     (response) => {
-  //       this.router.navigate(['list']);
-  //     },
-  //     (error) => {
-  //       alert(`Problème de connexion à votre serveur. Prière de consulter l'administrateur. Les données affichées sont fakes.`);
-  //       console.log(error);
-  //     }
-  //     )
-  // }
+  deleteuser(user: User){
+    this.users = this.users.filter(u => u !== user);
+    this.userserviceService.deleteUser(user).subscribe(
+      (response) => {
+        this.router.navigate(['list']);
+      },
+      (error) => {
+        alert(`Problème de connexion à votre serveur.`);
+        console.log(error);
+      }
+      )
+  }
+
+  updateuser(user: User){
+    this.users = this.users.filter(u => u !== user);
+    this.userserviceService.updateUser(user).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        alert(`Problème de connexion à votre serveur.`);
+        console.log(error);
+      }
+      )
+  }
 
 }

@@ -1,3 +1,5 @@
+import { Router } from '@angular/router';
+import { UserserviceService } from './../../services/userservice.service';
 import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 
@@ -10,11 +12,25 @@ export class UpdateuserComponent implements OnInit {
 
   user: User;
 
-  constructor() { 
-    this.user=new User();
+  constructor(
+    private userserviceService: UserserviceService,
+    private router : Router) { 
   }
 
   ngOnInit(): void {
+  }
+
+  modifInfo(user: User)
+  {
+    this.userserviceService.updateUser(user).subscribe(
+      (response) => {
+        this.router.navigate(['list']);
+      },
+      (error) => {
+        alert(`Problème de connexion à votre serveur.`);
+        console.log(error);
+      }
+      )
   }
 
 }
