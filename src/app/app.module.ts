@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID  } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -18,7 +18,9 @@ import { SuperComponent } from './Components/super/super.component';
 import { RhComponent } from './Components/rh/rh.component';
 import { RpComponent } from './Components/rp/rp.component';
 import { ColaborateurComponent } from './Components/colaborateur/colaborateur.component';
-
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { ColaborateurComponent } from './Components/colaborateur/colaborateur.co
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

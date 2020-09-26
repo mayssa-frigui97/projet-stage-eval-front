@@ -42,17 +42,18 @@ export class ListuserComponent implements OnInit {
       )
   }
 
-  updateuser(user: User){
-    this.users = this.users.filter(u => u !== user);
-    this.userserviceService.updateUser(user).subscribe(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        alert(`Problème de connexion à votre serveur.`);
-        console.log(error);
-      }
-      )
-  }
+  // updateuser(user: User):User{
+  //   this.users = this.users.filter(u => u !== user);
+  //   // this.userserviceService.updateUser(user).subscribe(
+  //   //   (response) => {
+  //   //     console.log(response);
+  //   //   },
+  //   //   (error) => {
+  //   //     alert(`Problème de connexion à votre serveur.`);
+  //   //     console.log(error);
+  //   //   }
+  //   //   )
+  //   return user;
+  // }
 
 }

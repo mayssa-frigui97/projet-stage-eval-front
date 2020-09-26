@@ -27,16 +27,19 @@ export class UserserviceService {
   }
 
   getUsers(): Observable<User[]>{
-    return this.http.get<User[]> (`${environment.apiUrl}/users`, this.httpOptions);
+    const url =`${environment.apiUrl}/users`;
+    return this.http.get<User[]> (url, this.httpOptions);
   }
 
-  getUser(id : number){
-    return this.http.get<User>(`${environment.apiUrl}/users`,this.httpOptions);
+  getUser(id : number):Observable<User>{
+    const url =`${environment.apiUrl}/users/${id}`;
+    return this.http.get<User>(url,this.httpOptions);
   }
 
   addUser(credentials):Observable<any>{
+    const url =`${environment.apiUrl}/users`;
     console.log(credentials);
-    return this.http.post(`${environment.apiUrl}/users`,credentials, this.httpOptions);
+    return this.http.post(url,credentials, this.httpOptions);
   }
 /*
   addUser(User: User): Observable<User> {
@@ -79,13 +82,17 @@ private handleError<T>(operation = 'operation', result?: T) {//????
     );
   }
 
-  updateUser(user: User| number): Observable<User> {
-    const id = typeof user === 'number' ? user : user.id;
-    const url = `${environment.apiUrl}/users/${id}`;
-  
-    return this.http.patch<User>(url, this.httpOptions).pipe(
-      tap(_ => console.log(`update User id=${id}`)),
-      catchError(this.handleError<User>('updateUser'))
+  updateUser(user: User): Observable<any>{
+    const url = `${environment.apiUrl}/users/${user.id}`;
+
+    console.log("user:*****",user);
+    return this.http.put(url,user, this.httpOptions).pipe(
+      tap(_ => console.log(`updated user id=${user.id}`)),
+      catchError(this.handleError<any>('updateUser'))
     );
   }
+
+  // recupereUser():Observable <User>{
+
+  // }
 }

@@ -1,12 +1,6 @@
+import { UserRoleEnum } from './../enums/userrole';
 import { Pole } from './pole';
 
-enum UserRole {
-    SUPER= 'SUPER',
-    RH = 'RH',
-    RP = 'RP',
-    COLABORATEUR ='COLABORATEUR'
-  }
-  
 export class User {
 
     public id: number;
@@ -25,13 +19,13 @@ export class User {
   
     public avatar: string;
 
-    public date_emb: Date;
+    public date_emb: Date | string;
 
     public nom_utilisateur: string;
 
     public mot_de_passe: string;
 
-    public role: UserRole;
+    public role: UserRoleEnum;
 
     public pole: Pole;
 

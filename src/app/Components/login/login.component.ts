@@ -11,54 +11,63 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  public userAuthenticated : User;
-  public isauthenticated:boolean;
-  public token;
+  // public userAuthenticated : User;
+  // public isauthenticated:boolean;
+  // public token;
+  // public message ='';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  // constructor(private authService: AuthService, private router: Router) { }
 
-  ngOnInit(): void {
+  // ngOnInit(): void {
+  // }
+
+  // login(loginFormulaire:NgForm){
+  //   console.log(loginFormulaire);
+  // }
+  // onSubmit(loginFormulaire:NgForm){
+  //   const credentials = {
+  //     nom_utilisateur: loginFormulaire.value.username, 
+  //     mot_de_passe: loginFormulaire.value.password
+  //   }
+  //   this.authService
+  //   .signin(credentials)
+  //   .subscribe(
+  //     (result: any) => {
+  //       this.userAuthenticated=result.user;
+  //       console.log("utilisateur:",this.authService.userAuthentifiedvalue);
+  //       localStorage.setItem('access_token', result.access_token);
+  //       this.isauthenticated=true;
+  //       this.router.navigate(['profil',this.userAuthenticated.id]);
+  //     },
+  //     (erreur) => {
+  //       this.message="Votre nom utilisateur ou mot de passe est erroné ";
+  //       this.isauthenticated=false;
+  //     }
+  //     );
+  //   }
+  // }
+
+  form: any = {};
+  isSuccessful = false;
+  isSignUpFailed = false;
+  errorMessage = '';
+
+  constructor(private authService: AuthService) { }
+
+  ngOnInit() {
   }
 
-  login(loginFormulaire:NgForm){
-    console.log(loginFormulaire);
-    const credentials = {
-      nom_utilisateur: loginFormulaire.value.username, 
-      mot_de_passe: loginFormulaire.value.password
-    }
-    if(this.authService.signin(credentials)){
-      this.isauthenticated=true;
-    }
-    else{
-      this.isauthenticated=false;
-    }
-    console.log("isauthenticated = ",this.isauthenticated);
-    if (loginFormulaire.value.role=='COLABORATEUR')
-    {
-      console.log("*************");
-    }
-    if (this.authService.isCol()){
-      console.log("isCol =",this.authService.isCol());
-      this.router.navigate(['profil']);
-    }
-
+  onSubmit() {
+    this.authService.signin(this.form).subscribe(
+      data => {
+        console.log(data);
+        this.isSuccessful = true;
+        this.isSignUpFailed = false;
+      },
+      err => {
+        this.errorMessage = err.error.message;
+        this.isSignUpFailed = true;
+      }
+    );
   }
-  onSubmit(loginFormulaire:NgForm){
-    const credentials = {
-      nom_utilisateur: loginFormulaire.value.username, 
-      mot_de_passe: loginFormulaire.value.password
-    }
-    this.authService
-    .signin(credentials)
-    .subscribe((resut: any) => localStorage.setItem('access_token', resut.access_token));
-    if(this.authService.signin(credentials)){
-      this.isauthenticated=true;
-      // const result= this.authService.signin(credentials);
-      // {this.token,this.userAuthenticated}= result;
-    }
-    else{
-      this.isauthenticated=false;
-    }
-  }
-
 }

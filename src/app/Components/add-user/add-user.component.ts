@@ -1,3 +1,4 @@
+import { UserRoleEnum } from './../../enums/userrole';
 import { UserserviceService } from './../../services/userservice.service';
 import { User } from './../../model/user';
 
@@ -14,6 +15,7 @@ export class AddUserComponent implements OnInit {
 
   users: User[];
   errorMessage='';
+  userRole = UserRoleEnum;
 
   constructor(
     private UserService: UserserviceService,
@@ -21,6 +23,7 @@ export class AddUserComponent implements OnInit {
     { }
 
   ngOnInit(): void {
+    console.log(this.userRole)
   }
 
   getUsers(): void {
@@ -39,10 +42,11 @@ export class AddUserComponent implements OnInit {
       poste: formulaire.value.poste,
       salaire: formulaire.value.salaire,
       avatar: formulaire.value.path,
-      dat_emb: formulaire.value.date_emb,
+      date_emb: formulaire.value.date_emb,
       role: formulaire.value.role,
       pole: formulaire.value.pole
     }
+    console.log("Role ->>>: ",credentials.role);
     this.UserService.addUser(credentials).subscribe(
       (response) => {
         console.log(credentials);

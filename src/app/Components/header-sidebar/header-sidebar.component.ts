@@ -1,3 +1,6 @@
+import { AuthService } from './../../services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderSidebarComponent implements OnInit {
 
-  constructor() { }
+  user: User;
+
+  constructor(private authService : AuthService,
+    private activatedRoute : ActivatedRoute) { }
 
   ngOnInit(): void {
+    // this.user=this.authService.getUser();
+    // console.log(this.user);
   }
 
 }

@@ -13,7 +13,7 @@
                     <h6><strong>CIN :</strong>{{user.cin}}</h6>
                     <h6><strong>Âge :</strong>{{user.age}}</h6>
                     <h6><strong>Salaire :</strong>{{user.salaire}}</h6>
-                    <h6><strong>Date d'embauche :</strong>{{user.date_emb}}</h6> 
+                    <h6><strong>Date d'embauche :</strong>{{user.date_emb | date:  'dd/MM/yyyy'}}</h6> 
                     <h6><strong>Pôle :</strong>{{user.pole.nom}}</h6>
                 </div>
             </div>

@@ -10,12 +10,11 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },/*par defaut*/
   { path: 'proxym', component: ProxymComponent },
-  { path: 'profil', component: ProfilComponent },
-  { path: 'list/update', component: UpdateuserComponent },
+  { path: 'profil/:id', component: ProfilComponent },
+  { path: 'list/update/:id', component: UpdateuserComponent },
   { path: 'list', component: ListuserComponent},
   { path: 'signin', component: LoginComponent},
   { path: 'add', component: AddUserComponent}
-
 ];
 
 @NgModule({

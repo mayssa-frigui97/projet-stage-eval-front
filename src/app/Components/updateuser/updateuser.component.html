@@ -6,25 +6,27 @@
             <div class="card-header card-header-primary">
               <h4 class="card-title">Modifier le profil</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body" *ngIf="user">
               <form #formulaire="ngForm">
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="cin" class="bmd-label-floating">Cin</label>
-                      <input type="number" class="form-control" id="cin" ngModel name="cin">
+                      <label for="username" class="bmd-label-floating">Nom utilisateur</label>
+                      <input type="text" class="form-control" id="username" [(ngModel)]="user.nom_utilisateur" name="username">
                     </div>
                   </div>
+                </div><br>
+                <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="nom" class="bmd-label-floating">Nom</label>
-                      <input type="text" class="form-control" id="nom" ngModel name="nom">
+                      <input type="text" class="form-control" id="nom" [(ngModel)]="user.nom" name="nom">
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
                       <label for="prenom" class="bmd-label-floating">Prénom</label>
-                      <input type="text" class="form-control" id="prenom" ngModel name="prenom">
+                      <input type="text" class="form-control" id="prenom" [(ngModel)]="user.prenom" name="prenom">
                     </div>
                   </div>
                 </div><br>
@@ -32,19 +34,19 @@
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="age" class="bmd-label-floating">Âge</label>
-                      <input type="number" class="form-control" id="age" ngModel name="age">
+                      <input type="number" class="form-control" id="age" [(ngModel)]="user.age" name="age">
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
                       <label for="poste" class="bmd-label-floating">Poste</label>
-                      <input type="text" class="form-control" id="poste" ngModel name="poste">
+                      <input type="text" class="form-control" id="poste" [(ngModel)]="user.poste" name="poste">
                     </div>
                   </div>
                   <div class="col-md-3">
                     <div class="form-group">
                       <label for="salaire" class="bmd-label-floating">Salaire</label>
-                      <input type="number" class="form-control" id="salaire" ngModel name="salaire">
+                      <input type="number" class="form-control" id="salaire" [(ngModel)]="user.salaire" name="salaire">
                     </div>
                   </div>
                 </div>
@@ -52,34 +54,35 @@
                     <div class="col-md-5">
                         <div class="form-group">
                           <label for="date_emb" class="bmd-label-floating">Date d'embauche</label><br>
-                          <input type="date" class="form-control" id="date_emb" ngModel name="date_emb">
+                          <input type="date" class="form-control" id="date_emb" [(ngModel)]="user.date_emb" name="date_emb">
                         </div>
                     </div>
                     <div class="col-md-4">
                       <div class="form-group">
                         <label for="avatar" class="bmd-label-floating">Avatar</label><br>
-                        <input type="text" class="form-control" id="avatr" ngModel name="avatar">
+                        <input type="text" class="form-control" id="avatr" [(ngModel)]="user.avatar" name="avatar">
                       </div>
                     </div>
                     <div class="col-md-3">
                       <div class="form-group">
                         <label for="pole" class="bmd-label-floating">Pôle</label><br>
-                        <input type="number" class="form-control" id="pole" ngModel name="pole">
+                        <input type="number" class="form-control" id="pole" [(ngModel)]="user.pole.id" name="pole">
                       </div>
-                  </div>
+                    </div>
                 </div><br>
-                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="modifInfo(user)">Enregistrer les informations</button>
+                <button  class="btn btn-primary pull-right" (click)="retour()">Retour</button>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="enregistrer(user)">Enregistrer les informations</button>
                 <div class="clearfix"></div>
               </form>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <!-- <div class="col-md-4">
             <div class="card card-profile">
                 <div class="card-avatar">
                     <img class="img" src="../assets/img/tof.jpg">
-                    <!-- <img class="img" src="../assets/img/{{user.avatar}}"> -->
-                </div>
+                    <!- - <img class="img" src="../assets/img/{{user.avatar}}"> -->
+                <!-- </div>
                 <div class="card-body">
                     <h6 class="card-category">{{user.poste}}</h6>
                     <h4 class="card-title">{{user.nom| titlecase}} {{user.prenom| uppercase}}</h4>
@@ -93,7 +96,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
