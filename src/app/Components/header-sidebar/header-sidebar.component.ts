@@ -1,5 +1,6 @@
+import { TokenStorageService } from './../../services/token-storage.service';
 import { AuthService } from './../../services/auth.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 
@@ -12,12 +13,16 @@ export class HeaderSidebarComponent implements OnInit {
 
   user: User;
 
-  constructor(private authService : AuthService,
-    private activatedRoute : ActivatedRoute) { }
+  constructor(private tokenStorage : TokenStorageService,
+    private router : Router) { }
 
   ngOnInit(): void {
-    // this.user=this.authService.getUser();
-    // console.log(this.user);
+    
+  }
+
+  logout(){
+    this.tokenStorage.signOut();
+    this.router.navigate(['/signout']);
   }
 
 }

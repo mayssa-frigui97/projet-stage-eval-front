@@ -14,10 +14,11 @@ import { RpComponent } from './Components/rp/rp.component';
 const routes: Routes = [
   { path: '', redirectTo: '/signin', pathMatch: 'full' },/*par defaut*/
   { path: 'proxym', component: ProxymComponent },
-  { path: 'profil/:id', component: ProfilComponent },
+  { path: 'profil', component: ProfilComponent },
   { path: 'list/update/:id', component: UpdateuserComponent },
   { path: 'list', component: ListuserComponent},
   { path: 'signin', component: LoginComponent},
+  { path: 'signout', component: LoginComponent},
   { path: 'super', component: SuperComponent},
   { path: 'colaborateur', component: ColaborateurComponent},
   { path: 'rh', component: RhComponent},

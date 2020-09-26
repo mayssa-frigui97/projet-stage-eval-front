@@ -56,4 +56,17 @@ label {
     -moz-border-radius: 50%;
     -webkit-border-radius: 50%;
     border-radius: 50%;
+    border: rgba(224, 221, 221, 0.925) 2px solid;
+  }
+
+  .form-group{
+    text-align: center;
+
+  }
+  .form-control{
+    color:black!important;
+  }
+  .form-group label{
+    color: rgb(155, 67, 169)!important;
+    font-weight: bold;
   }

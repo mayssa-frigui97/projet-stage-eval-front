@@ -35,7 +35,7 @@ export class AuthService {
 
   signin(credentials) {
     const url = `${environment.apiUrl}/auth/signin`;
-    return this.http.post(url, 
+    return this.http.post<any>(url, 
       {
         nom_utilisateur: credentials.username, 
         mot_de_passe: credentials.password
@@ -109,6 +109,6 @@ export class AuthService {
 
     localStorage.removeItem('user');
     this.userAuthenticatedSubject.next(null);
-    this.router.navigate(['/login']);
+    this.router.navigate(['/signout']);
   }
 }

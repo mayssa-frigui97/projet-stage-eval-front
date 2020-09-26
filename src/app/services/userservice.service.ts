@@ -29,15 +29,18 @@ export class UserserviceService {
   }
 
   getUsers(): Observable<User[]>{
+    const url =`${environment.apiUrl}/users`;
     return this.http.get<User[]> (url, this.httpOptions);
   }
 
   getUser(id : number):Observable<User>{
     const url =`${environment.apiUrl}/users/${id}`;
-    return this.http.get<User>(url+`${id}`,this.httpOptions);
+    return this.http.get<User>(url,this.httpOptions);
   }
 
   addUser(credentials):Observable<any>{
+    const url =`${environment.apiUrl}/users`;
+    console.log(credentials);
     return this.http.post(url,credentials, this.httpOptions);
   }
 
@@ -63,33 +66,39 @@ private handleError<T>(operation = 'operation', result?: T) {//????
 
   deleteUser(user: User | number): Observable<User> {
     const id = typeof user === 'number' ? user : user.id;
+    const url = `${environment.apiUrl}/users/${id}`;
   
-    return this.http.delete<User>(url+`${id}`, this.httpOptions).pipe(
+    return this.http.delete<User>(url, this.httpOptions).pipe(
       tap(_ => console.log(`deleted User id=${id}`)),
       catchError(this.handleError<User>('deleteUser'))
     );
   }
 
   updateUser(user: User): Observable<any>{
-    return this.http.put(url+`${user.id}`,user, this.httpOptions).pipe(
+    const url = `${environment.apiUrl}/users/${user.id}`;
+    return this.http.put(url,user, this.httpOptions).pipe(
       tap(_ => console.log(`updated user id=${user.id}`)),
       catchError(this.handleError<any>('updateUser'))
     );
   }
 
   getPublicContent(): Observable<any> {
+    const url = `${environment.apiUrl}/users`;
     return this.http.get(url + 'all', { responseType: 'text' });
   }
 
   getRhBoard(): Observable<any> {
+    const url = `${environment.apiUrl}/users`;
     return this.http.get(url + 'rh', { responseType: 'text' });
   }
 
   getRpBoard(): Observable<any> {
+    const url = `${environment.apiUrl}/users`;
     return this.http.get(url + 'rp', { responseType: 'text' });
   }
 
   getColaborateurBoard(): Observable<any> {
+    const url = `${environment.apiUrl}/users`;
     return this.http.get(url + 'colaborateur', { responseType: 'text' });
   }
 

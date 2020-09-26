@@ -1,3 +1,4 @@
+import { UserserviceService } from './../../services/userservice.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RpComponent implements OnInit {
 
-  constructor() { }
+  content = '';
+
+  constructor(private userService: UserserviceService) { }
 
   ngOnInit(): void {
+    this.userService.getRpBoard().subscribe(
+      data => {
+        this.content = data;
+      },
+      err => {
+        this.content = JSON.parse(err.error).message;
+      }
+    );
   }
-
 }

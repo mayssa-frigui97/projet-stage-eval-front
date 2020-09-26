@@ -1,22 +1,149 @@
-<div class="row">
+<div class="row" *ngIf="currentUser; else loggedOut">
     <div class="col-md-3"></div>
     <div class="col-md-6">
-        <div class="card card-profile">
-            <div class="card-avatar">
-                <img class="img" src="../../../assets/img/tof.jpg">
-            </div>
-            <div class="card-body">
-                <h6 class="card-category">{{user.poste}}</h6>
-                <h4 class="card-title">{{user.nom| titlecase}} {{user.prenom| uppercase}}</h4>
-                <div class="card-description">
-                    <h6><strong>ID :</strong>{{user.id}}</h6>
-                    <h6><strong>CIN :</strong>{{user.cin}}</h6>
-                    <h6><strong>Âge :</strong>{{user.age}}</h6>
-                    <h6><strong>Salaire :</strong>{{user.salaire}}</h6>
-                    <h6><strong>Date d'embauche :</strong>{{user.date_emb | date:  'dd/MM/yyyy'}}</h6> 
-                    <h6><strong>Pôle :</strong>{{user.pole.nom}}</h6>
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    <div class="cover">
+                        <img src="../../../assets/img/rotating_card_thumb3.png" />
+                    </div>
+                    <div class="user">
+                        <img class="img-circle" src="../../../assets/img/{{currentUser.avatar}}" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h3 class="name"><strong>{{currentUser.prenom| titlecase}} {{currentUser.nom| uppercase}}</strong> </h3>
+                            <p class="profession">{{currentUser.poste}}</p>
+
+                            <h6 class="text-center"><strong>Pôle :</strong>{{currentUser.pole.nom}}</h6>
+                        </div>
+                        <div class="footer">
+                            <div class="rating">
+                                <i class="fa fa-mail-forward"></i> Plus d'information 
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
+                <div class="back">
+                    <div class="cover">
+                        <img src="../../../assets/img/rotating_card_thumb3.png" />
+                    </div>
+                    <div class="user">
+                        <img class="img-circle" src="../../../assets/img/{{currentUser.avatar}}" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h4 class="text-center"><strong>{{currentUser.prenom| titlecase}} {{currentUser.nom| uppercase}}</strong>
+                            </h4><br>
+                            <div class="container-fluid">
+                                <h6><strong style="color:grey">Nom utilisateur : </strong>{{currentUser.nom_utilisateur }}</h6>
+                                <h6><strong style="color:grey">Id : </strong>{{currentUser.id}}</h6>
+                                <h6><strong style="color:grey">CIN : </strong>{{currentUser.cin}}</h6>
+                                <h6><strong style="color:grey">Âge : </strong>{{currentUser.age}}</h6>
+                                <h6><strong style="color:grey">Poste : </strong>{{currentUser.poste}}</h6>
+                                <h6><strong style="color:grey">Pôle : </strong>{{currentUser.pole.nom}}</h6>
+                                <h6><strong style="color:grey">Salaire : </strong>{{currentUser.salaire}}</h6>
+                                <h6><strong style="color:grey">Date d'embauche : </strong>{{currentUser.date_emb | date:  'dd/MM/yyyy'}}</h6>
+                                <!-- <div class="tab-content ml-1" id="myTabContent">
+                                    <div class="tab-pane fade show active" id="basicInfo" role="tabpanel" aria-labelledby="basicInfo-tab">
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Nom utilisateur : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.nom_utilisateur}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Id : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.id}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">CIN : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.cin}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">Âge : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.age}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;"> Poste : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.poste}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;"> Salaire : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.salaire}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;"> Date d'embauche : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.date_emb}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;"> Pôle : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.pole.nom}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                        <div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;"> Rôle : </label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+                                                {{currentUser.role}}
+                                            </div>
+                                        </div>
+                                        <hr />
+                                
+                                    </div>
+                                </div> -->
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+
+
+<ng-template #loggedOut>
+    Please login.
+  </ng-template>

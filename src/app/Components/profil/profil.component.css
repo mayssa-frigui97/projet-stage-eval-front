@@ -1,0 +1,17 @@
+.container-fluid{
+    padding-left: 10%;
+    /* padding-right: 10%; */ 
+    /* padding-top: 20%; */
+}
+
+/* .label{
+    font-size: 10px!important;
+} */
+
+.card-container, .front, .back {
+    height: 470px;
+}
+
+.card .footer{
+    margin-top: 50px!important;
+}

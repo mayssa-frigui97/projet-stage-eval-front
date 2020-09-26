@@ -3,6 +3,7 @@ import { UserserviceService } from './../../services/userservice.service';
 import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-profil',
@@ -11,26 +12,26 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProfilComponent implements OnInit {
 
-  user: User;
+  // user: User;
 
-  constructor(
-    private userserviceService: UserserviceService,
-    private activatedRoute: ActivatedRoute,
-    private authservice: AuthService) { 
-  }
+  // constructor(
+  //   private userserviceService: UserserviceService,
+  //   private activatedRoute: ActivatedRoute,
+  //   private authservice: AuthService) { 
+  // }
 
-  ngOnInit(): void {
-    this.activatedRoute.params.subscribe(
-          (params) => {
-            this.userserviceService.getUser(params.id).subscribe(
-              (user) => {this.user=user;}
-            );
-          }      
-        );
-        console.log("****");
-        this.user=this.authservice.userAuthentifiedvalue;
-        console.log(this.user);
-  }
+  // ngOnInit(): void {
+  //   this.activatedRoute.params.subscribe(
+  //         (params) => {
+  //           this.userserviceService.getUser(params.id).subscribe(
+  //             (user) => {this.user=user;}
+  //           );
+  //         }      
+  //       );
+  //       console.log("****");
+  //       this.user=this.authservice.userAuthentifiedvalue;
+  //       console.log(this.user);
+  // }
 
   // getUser(id : number){
   //   this.userserviceService.getUser(id).subscribe(
@@ -44,11 +45,12 @@ export class ProfilComponent implements OnInit {
   //   );
   // }
 
-  // logout() {
-  //   console.log('Tentative de déconnexion');
-  
-  //   localStorage.removeItem('user');
-  //   this.router.navigate(['/login']);
-  // }
+  currentUser: any;
 
+  constructor(private token: TokenStorageService) { }
+
+  ngOnInit() {
+    this.currentUser = this.token.getUser();
+    console.log("this.currentUser:",this.currentUser);
+  }
 }

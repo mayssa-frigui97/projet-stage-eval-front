@@ -36,11 +36,16 @@
 
 
   <div class="col-md-12">
-    <div class="card card-container">
+    <div class="card card-container" >
       <img
         id="profile-img"
         src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
+        class="profile-img-card"  *ngIf="!isLoggedIn"
+      />
+      <img
+        id="profile-img"
+        src="../../../assets/img/{{userAuth.avatar}}"
+        class="profile-img-card"  *ngIf="isLoggedIn"
       />
       <form
         *ngIf="!isLoggedIn"
@@ -50,7 +55,7 @@
         novalidate
       >
         <div class="form-group">
-          <label for="username">Nom utilisateur</label>
+          <label for="username">Nom utilisateur</label><br>
           <input
             type="text"
             class="form-control"
@@ -68,7 +73,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label for="password">Mot de passe</label>
+          <label for="password">Mot de passe</label><br>
           <input
             type="password"
             class="form-control"
@@ -104,9 +109,15 @@
           </div>
         </div>
       </form>
-  
       <div class="alert alert-success" *ngIf="isLoggedIn">
+        <br>
         Connecté en tant que {{ roles }}.
+      </div>
+        <div class="form-group" *ngIf="isLoggedIn">
+          <br><br>
+          <button class="btn btn-danger btn-center" (click)="logout()">
+            Déconnexion
+          </button>
       </div>
     </div>
   </div>
