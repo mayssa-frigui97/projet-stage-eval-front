@@ -1,10 +1,14 @@
 import { Router } from '@angular/router';
-import { UserRoleEnum } from './../enums/userrole';
 import { User } from './../model/user';
 import { environment } from './../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+
+  const httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +20,7 @@ export class AuthService {
   public userAuthenticate : Observable<User>;
   public userAuthenticated : User;
   public token : string;
+
 
   constructor(private http: HttpClient,
     private router: Router) {
@@ -30,8 +35,14 @@ export class AuthService {
 
   signin(credentials) {
     const url = `${environment.apiUrl}/auth/signin`;
-    return this.http.post(url, credentials);
+    return this.http.post(url, 
+      {
+        nom_utilisateur: credentials.username, 
+        mot_de_passe: credentials.password
+      }
+      , httpOptions);
   }
+
 
   // public saveAuthenticatedUser():User{
   //   let t=localStorage.getItem('access_token');
