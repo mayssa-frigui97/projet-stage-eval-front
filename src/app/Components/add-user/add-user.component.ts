@@ -41,7 +41,7 @@ export class AddUserComponent implements OnInit {
       age: formulaire.value.age,
       poste: formulaire.value.poste,
       salaire: formulaire.value.salaire,
-      avatar: formulaire.value.path,
+      avatar: formulaire.value.avatar,
       date_emb: formulaire.value.date_emb,
       role: formulaire.value.role,
       pole: formulaire.value.pole

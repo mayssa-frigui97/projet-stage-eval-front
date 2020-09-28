@@ -91,8 +91,4 @@ export class LoginComponent implements OnInit {
     window.location.reload();
   }
 
-  logout(){
-    this.tokenStorage.signOut();
-    this.router.navigate(['/signout']);
-  }
 }

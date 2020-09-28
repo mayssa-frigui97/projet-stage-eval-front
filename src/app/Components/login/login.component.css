@@ -70,3 +70,8 @@ label {
     color: rgb(155, 67, 169)!important;
     font-weight: bold;
   }
+
+  .alert.alert-success {
+    padding-top: 5px;
+    margin-top: 50px!important;
+  }

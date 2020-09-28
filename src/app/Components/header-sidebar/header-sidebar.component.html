@@ -17,36 +17,90 @@
             <p>Présentation de PROXYM</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" [routerLink]="['profil']">
             <i class="material-icons">person</i>
-            <p>Profil utilisateur</p>
+            <p>{{username}}</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item " *ngIf="showSuperBoard || showRhBoard">
           <a class="nav-link" [routerLink]="['list']">
             <i class="fa fa-users" aria-hidden="true"></i>
             <p>La liste des utilisateurs</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item " *ngIf="showSuperBoard || showRhBoard">
           <a class="nav-link" [routerLink]="['add']">
             <i class="fa fa-user-plus" aria-hidden="true"></i>
             <p>Ajouter un utilisateur</p>
           </a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item " *ngIf="showRpBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <p>La liste des utilisateurs</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRpBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter les évaluations</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRhBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <p>Planifier une évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRhBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter les évaluations</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="material-icons">content_paste</i>
+            <p>La liste des pôles</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <p>Ajouter un pôle</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="material-icons">content_paste</i>
+            <p>La liste des critères</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
+            <p>Ajouter un critère</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showColabBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <p>Remplir évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showColabBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="isLoggedIn">
           <a class="nav-link" [routerLink]="['signout']" (click)="logout()">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <p>Se déconnecter</p>
           </a>
         </li>
-        <!-- <li class="nav-item active-pro ">
-              <a class="nav-link" href="./upgrade.html">
-                  <i class="material-icons">unarchive</i>
-                  <p>Upgrade to PRO</p>
-              </a>
-          </li> -->
       </ul>
     </div>
   </div>
