@@ -1,10 +1,12 @@
-import { UserRoleEnum } from './../../enums/userrole';
+import { Pole } from './../../model/pole';
+import { PoleService } from './../../services/pole.service';
 import { UserserviceService } from './../../services/userservice.service';
+import { UserRoleEnum } from './../../enums/userrole';
 import { User } from './../../model/user';
-
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-add-user',
@@ -14,16 +16,34 @@ import { NgForm } from '@angular/forms';
 export class AddUserComponent implements OnInit {
 
   users: User[];
+  poles: Pole[];
+  pole : Pole;
   errorMessage='';
   userRole = UserRoleEnum;
 
   constructor(
-    private UserService: UserserviceService,
-    private router: Router)
+    private UserService : UserserviceService,
+    private poleService : PoleService, 
+    private router : Router,
+    private location : Location)
     { }
 
   ngOnInit(): void {
-    console.log(this.userRole)
+    this.getPoles();
+    console.log("this.getPoles():",this.getPoles());
+  }
+
+  getPoles(){
+    this.poleService.getPoles().subscribe(
+      (poles) => {
+        this.poles=poles;
+        console.log("this.poles:",this.poles)
+      },
+      (error) => {
+        this.errorMessage = `Problème de connexion à votre serveur. Prière de consulter l'administrateur.`;
+        console.log(error);
+      }
+    );
   }
 
   getUsers(): void {
@@ -46,16 +66,19 @@ export class AddUserComponent implements OnInit {
       role: formulaire.value.role,
       pole: formulaire.value.pole
     }
-    console.log("Role ->>>: ",credentials.role);
     this.UserService.addUser(credentials).subscribe(
-      (response) => {
+      () => {
         console.log(credentials);
-        this.router.navigate(['list']);
+        this.router.navigate(['list-users']);
       },
       (error) => {
         this.errorMessage = `Problème de connexion à votre serveur. Prière de consulter l'administrateur.`;
         console.log(error);
       }
     );
+  }
+
+  retour(){
+    this.location.back();
   }
 }

@@ -1,6 +1,8 @@
-import { ActivatedRoute, Router } from '@angular/router';
-import { UserserviceService } from './../../services/userservice.service';
+import { Pole } from './../../model/pole';
+import { PoleService } from './../../services/pole.service';
 import { User } from './../../model/user';
+import { UserserviceService } from './../../services/userservice.service';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import {Location} from '@angular/common';
 import { DatePipe } from '@angular/common';
@@ -14,26 +16,21 @@ import { DatePipe } from '@angular/common';
 export class UpdateuserComponent implements OnInit {
 
   user: User; 
+  poles: Pole[];
+  pole : Pole;
+  errorMessage='';
 
   constructor(
     private userserviceService: UserserviceService,
+    private poleService : PoleService, 
     private activatedRoute : ActivatedRoute,
-    private router : Router,
     private location: Location) { 
   }
 
   ngOnInit(): void {
-  //   this.activatedRoute.params.subscribe(
-  //     (params) => {
-  //       this.userserviceService.getUser(params.id).subscribe(
-  //         (user) => {this.user=user;}
-  //       );
-  //     }      
-  //   );
-  // }
-
   this.getUser();
   console.log("user here nginit: ",this.user);
+  this.getPoles();
   }
   
   getUser(): void {
@@ -57,5 +54,15 @@ export class UpdateuserComponent implements OnInit {
       () => this.retour()
        );
   }
-
+  getPoles(){
+    this.poleService.getPoles().subscribe(
+      (poles) => {
+        this.poles=poles;
+      },
+      (error) => {
+        this.errorMessage = `Problème de connexion à votre serveur. Prière de consulter l'administrateur.`;
+        console.log(error);
+      }
+    );
+  }
 }

@@ -10,7 +10,7 @@ export class Evaluation {
 
     public id: number;
 
-    public date: Date;
+    public date: Date | string;
 
     public type: EvalType;
 

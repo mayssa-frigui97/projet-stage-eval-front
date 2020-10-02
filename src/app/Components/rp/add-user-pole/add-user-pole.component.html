@@ -1,0 +1,102 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Ajouter un utilisateur</h4>
+            </div>
+            <div class="card-body">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="username">Nom utilisateur:</label>
+                        <input required id="username" class="form-control" type="text" ngModel name="username">
+                    </div>
+                  </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="password">Mot de passe:</label>
+                        <input required id="password" class="form-control" type="password" ngModel name="password">
+                    </div>
+                </div>
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input required id="nom" class="form-control" type="text" ngModel name="nom">
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="firstname">Prénom :</label>
+                            <input  requiredid="firstname" class="form-control" type="text" ngModel name="prenom">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="cin">CIN :</label>
+                            <input required id="cin" class="form-control" type="number" ngModel name="cin">
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="age">Âge :</label>
+                            <input required id="age" class="form-control" type="number" min="0" max="70" ngModel name="age">
+                        </div>
+                      </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="job">Poste :</label>
+                        <input required id="job" class="form-control" type="text" ngModel name="poste">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="salaire">Salaire :</label>
+                        <input required id="salaire" class="form-control" type="number" ngModel name="salaire">
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="avatar">Avatar :</label>
+                        <input id="avatar" class="form-control" type="text" ngModel name="avatar">
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label for="date_emb">Date d'embauche :</label>
+                            <input required id="date_emb" class="form-control" type="date" ngModel name="date_emb">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="btn1">
+                            <label for="role">Rôle : </label><br>
+                            <select ngModel name="role" id="role">
+                                <option [value]="userRole.SUPER">Super</option>
+                                <option [value]="userRole.RH">RH</option>
+                                <option [value]="userRole.RP">Responsable pôle </option>
+                                <option [value]="userRole.COLABORATEUR">Colaborateur </option>
+                            </select>
+                        </div>
+                    </div>
+                </div><br>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="addUser(formulaire)">Envoyer</button>&nbsp;&nbsp;
+                <button  class="btn btn-primary pull-right" (click)="retour()">Retour</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

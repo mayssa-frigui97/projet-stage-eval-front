@@ -1,0 +1,37 @@
+<div class="row" *ngIf="poles">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card card-plain">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0 text-center"> Liste des pôles</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="">
+                        <th >
+                            ID
+                        </th>
+                        <th>
+                            Nom
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pole of poles">
+                            <td>
+                                {{pole.id}}
+                            </td>
+                            <td>
+                                {{pole.nom}}
+                            </td>
+                            <button class=" delete" (click)="deletepole(pole)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            <button class=" update" [routerLink]="['update', pole.id]"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<button class="btn btn-primary pull-right float-right" [routerLink]="['add-pole']">Ajouter un nouveau pôle</button>

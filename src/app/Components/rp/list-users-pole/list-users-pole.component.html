@@ -1,0 +1,88 @@
+<div class="row" *ngIf="users">
+    <div class="card card-plain">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0"> Liste des utilisateurs du pôle {{pole.nom}} :</h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="">
+                        <th>
+                            ID
+                        </th>
+                        <th>
+                            Nom utilisateur
+                        </th>
+                        <th>
+                            Nom
+                        </th>
+                        <th>
+                            Prénom
+                        </th>
+                        <th>
+                            CIN
+                        </th>
+                        <th>
+                            Âge
+                        </th>
+                        <th>
+                            Poste
+                        </th>
+                        <th>
+                            Salaire
+                        </th>
+                        <th>
+                            Date d'embauche
+                        </th>
+                        <th>
+                            Avatar
+                        </th>
+                        <th>
+                            Rôle
+                        </th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users">
+                            <td>
+                                {{user.id}}
+                            </td>
+                            <td>
+                                {{user.nom_utilisateur}}
+                            </td>
+                            <td>
+                                {{user.nom}}
+                            </td>
+                            <td>
+                                {{user.prenom}}
+                            </td>
+                            <td>
+                                {{user.cin}}
+                            </td>
+                            <td>
+                                {{user.age}}
+                            </td>
+                            <td>
+                                {{user.poste}}
+                            </td>
+                            <td>
+                                {{user.salaire}}
+                            </td>
+                            <td>
+                                {{user.date_emb}}
+                            </td>
+                            <td>
+                                {{user.avatar}}
+                            </td>
+                            <td>
+                                {{user.role}}
+                            </td>
+                            <button class=" delete" (click)="deleteuser(user)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                            <button class=" update" [routerLink]="['update', user.id]" (click)="updateuser(user)"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<button class="btn btn-primary pull-right float-right" [routerLink]="['add-user']">Ajouter un nouveau utilisateur</button>

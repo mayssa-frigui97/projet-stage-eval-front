@@ -1,0 +1,70 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Modifier les détails de l'évaluation</h4>
+            </div>
+            <div class="card-body" *ngIf="evaluation">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="dateEval" class="bmd-label-floating">Date d'évaluation :</label>
+                      <input type="date" class="form-control" id="dateEval" [(ngModel)]="evaluation.date" name="dateEval">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="btn1">
+                        <label for="type">Type d'évaluation : &nbsp;&nbsp;</label><br>
+                        <select class="custom-select custom-select-md" [(ngModel)]="evaluation.type" name="type" id="type">
+                            <option disabled selected>Selectionner le type d'évaluation</option>
+                            <option [value]="typeEval.RH">RH</option>
+                            <option [value]="typeEval.RP">Responsable pôle </option>
+                            <option [value]="typeEval.COLABORATEUR">Colaborateur </option>
+                        </select>
+                    </div>
+                </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="btn1">
+                          <label for="rh"> RH : &nbsp;&nbsp;</label><br>
+                          <select class="custom-select custom-select-md" [(ngModel)]="evaluation.rh.id" name="rh" id="rh" >
+                              <option disabled selected>Selectionner RH</option>
+                              <option [value]="rh.id" *ngFor="let rh of rhs">{{rh.nom| titlecase}} {{rh.prenom| titlecase}}</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="btn1">
+                          <label for="rp"> Responsable Pôle : &nbsp;&nbsp;</label><br>
+                          <select class="custom-select custom-select-md" [(ngModel)]="evaluation.rp.id" name="rp" id="rp" >
+                              <option disabled selected>Selectionner le responsable pôle</option>
+                              <option [value]="rp.id" *ngFor="let rp of rps">{{rp.nom| titlecase}} {{rp.prenom| titlecase}}</option>
+                          </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                      <div class="btn1">
+                        <label for="col"> Colaborateur : &nbsp;&nbsp;</label><br>
+                        <select class="custom-select custom-select-md" [(ngModel)]="evaluation.colaborateur.id" name="col" id="col" >
+                            <option disabled selected>Selectionner le colaborateur</option>
+                            <option [value]="col.id" *ngFor="let col of cols">{{col.nom| titlecase}} {{col.prenom| titlecase}} : {{col.pole.nom}}</option>
+                        </select>
+                      </div>
+                    </div>
+                </div><br>
+                <button  class="btn btn-primary pull-right" (click)="retour()">Retour</button>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="enregistrer(evaluation)">Enregistrer les informations</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  

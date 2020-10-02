@@ -3,3 +3,8 @@
     /*padding: 10px 40px;*/
     cursor: pointer;
 }
+
+.btn.btn-primary.pull-right{
+    margin-right: 15px;
+}
+

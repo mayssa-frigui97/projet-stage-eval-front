@@ -1,0 +1,36 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Modifier le critère</h4>
+            </div>
+            <div class="card-body" *ngIf="critere">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="nom" class="bmd-label-floating">Nom </label>
+                      <input type="text" class="form-control" id="nom" [(ngModel)]="critere.nom" name="nom">
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <label for="coef" class="bmd-label-floating">Coefficient </label>
+                        <input type="number" class="form-control" id="nom" [(ngModel)]="critere.coef" name="coef">
+                      </div>
+                    </div>
+                  </div>
+                <button  class="btn btn-primary" (click)="retour()">Retour</button>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="enregistrer(critere)">Enregistrer les informations</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

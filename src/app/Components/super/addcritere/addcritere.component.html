@@ -1,0 +1,39 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Ajouter critère</h4>
+            </div>
+            <div class="card-body">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input required id="nom" class="form-control" type="text" ngModel name="nom">
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                          <label for="coef">Coeffcient :</label>
+                          <input required id="coef" class="form-control" type="number" ngModel name="coef">
+                      </div>
+                    </div>
+                  </div><br>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="addCritere(formulaire)">Envoyer</button>
+                <button  class="btn btn-primary pull-right" (click)="retour()">Retour</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

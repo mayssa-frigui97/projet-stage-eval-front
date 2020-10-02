@@ -1,0 +1,28 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Modifier le pôle</h4>
+            </div>
+            <div class="card-body" *ngIf="pole">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="nom" class="bmd-label-floating">Nom </label>
+                      <input type="text" class="form-control" id="nom" [(ngModel)]="pole.nom" name="nom">
+                    </div>
+                  </div>
+                </div><br>
+                <button  class="btn btn-primary" (click)="retour()">Retour</button>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="enregistrer(pole)">Enregistrer les informations</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

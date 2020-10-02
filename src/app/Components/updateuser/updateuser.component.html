@@ -62,9 +62,11 @@
                       </div>
                     </div>
                     <div class="col-md-3">
-                      <div class="form-group">
-                        <label for="pole" class="bmd-label-floating">Pôle</label><br>
-                        <input type="number" class="form-control" id="pole" [(ngModel)]="user.pole.id" name="pole">
+                      <div class="btn1">
+                        <label for="role">Pôle : &nbsp;&nbsp;</label><br>
+                        <select class="custom-select custom-select-md" [(ngModel)]="user.pole.id" name="pole" id="pole" >
+                            <option [value]="pole.id" *ngFor="let pole of poles">{{pole.nom}}</option>
+                        </select>
                       </div>
                     </div>
                 </div><br>
@@ -75,26 +77,46 @@
             </div>
           </div>
         </div>
-        <!-- <div class="col-md-4">
-            <div class="card card-profile">
-                <div class="card-avatar">
-                    <img class="img" src="../assets/img/tof.jpg">
-                    <!- - <img class="img" src="../assets/img/{{user.avatar}}"> -->
-                <!-- </div>
-                <div class="card-body">
-                    <h6 class="card-category">{{user.poste}}</h6>
-                    <h4 class="card-title">{{user.nom| titlecase}} {{user.prenom| uppercase}}</h4>
-                    <div class="card-description">
-                        <h6><strong>ID :</strong>{{user.id}}</h6>
-                        <h6><strong>CIN :</strong>{{user.cin}}</h6>
-                        <h6><strong>Âge :</strong>{{user.age}}</h6>
-                        <h6><strong>Salaire :</strong>{{user.salaire}}</h6>
-                        <h6><strong>Date d'embauche :</strong>{{user.date_emb}}</h6>
-                        <h6><strong>Pôle :</strong>{{user.pole.nom}}</h6>
-                    </div>
-                </div>
-            </div>
-        </div> -->
       </div>
     </div>
   </div>
+
+
+  <!-- <div class="col-md-4">
+                    <mat-form-field appearance="fill">
+                      <mat-label>Pôle : </mat-label>
+                      <mat-select class="custom-select custom-select-md">
+                        <mat-option *ngFor="let pole of poles" [value]="pole.id">
+                          {{pole.nom}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div> -->
+
+                  <!-- <div class="col-md-3">
+                        <div class="form-group">
+                            <label for="pole">Pôle :</label>
+                            <input id="pole" class="form-control" type="number" ngModel name="pole">
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-md-5">
+                      <div class="btn1">
+                          <label for="role">Pôle : &nbsp;&nbsp;</label><br>
+                          <select class="custom-select custom-select-md" ngModel name="pole" id="pole" >
+                              <option disabled selected>Selectionner le pôle</option>
+                              <option [value]="pole.id" *ngFor="let pole of poles">{{pole.nom}}</option>
+                          </select>
+                      </div>
+                    </div>   -->
+                    <!-- <div class="col-md-4">
+                      <label for="role">Rôle : &nbsp;&nbsp;</label>
+                      <mat-form-field appearance="fill">
+                        <mat-label>Rôle : </mat-label>
+                        <select matNativeControl required class="custom-select custom-select-md">
+                          <option [value]="userRole.SUPER">Super</option>
+                          <option [value]="userRole.RH">RH</option>
+                          <option [value]="userRole.RP">Responsable pôle </option>
+                          <option [value]="userRole.COLABORATEUR">Colaborateur</option>
+                        </select>
+                      </mat-form-field>
+                    </div> -->

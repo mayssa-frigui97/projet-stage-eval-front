@@ -1,5 +1,5 @@
-import { User } from './../../model/user';
 import { UserserviceService } from './../../services/userservice.service';
+import { User } from './../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -33,7 +33,7 @@ export class ListuserComponent implements OnInit {
     this.users = this.users.filter(u => u !== user);
     this.userserviceService.deleteUser(user).subscribe(
       (response) => {
-        this.router.navigate(['list']);
+        this.router.navigate(['list-users']);
       },
       (error) => {
         alert(`Problème de connexion à votre serveur.`);

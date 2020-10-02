@@ -22,12 +22,6 @@ export class UserserviceService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': `Bearer ${localStorage.getItem('access_token')}` })//Content-Type: Shows the type of document that is returned
   };
 
-  getFakeUsers(): User[]{
-    return this.Users=[
-      new User()
-      ];
-  }
-
   getUsers(): Observable<User[]>{
     const url =`${environment.apiUrl}/users`;
     return this.http.get<User[]> (url, this.httpOptions);
@@ -36,6 +30,21 @@ export class UserserviceService {
   getUser(id : number):Observable<User>{
     const url =`${environment.apiUrl}/users/${id}`;
     return this.http.get<User>(url,this.httpOptions);
+  }
+
+  getRH(): Observable<User[]>{
+    const url =`${environment.apiUrl}/users/RH`;
+    return this.http.get<User[]> (url, this.httpOptions);
+  }
+
+  getRP(): Observable<User[]>{
+    const url =`${environment.apiUrl}/users/RP`;
+    return this.http.get<User[]> (url, this.httpOptions);
+  }
+
+  getColPole(): Observable<User[]>{
+    const url =`${environment.apiUrl}/users/colaborateur/pole`;
+    return this.http.get<User[]> (url, this.httpOptions);
   }
 
   addUser(credentials):Observable<any>{
@@ -105,4 +114,19 @@ private handleError<T>(operation = 'operation', result?: T) {//????
   getSuperBoard(): Observable<any> {
     return this.http.get(url + 'super', { responseType: 'text' });
   }
+
+  // content = '';
+
+  // constructor(private userService: UserserviceService) { }
+
+  // ngOnInit(): void {
+  //   this.userService.getColaborateurBoard().subscribe(
+  //     data => {
+  //       this.content = data;
+  //     },
+  //     err => {
+  //       this.content = JSON.parse(err.error).message;
+  //     }
+  //   );
+  // }
 }

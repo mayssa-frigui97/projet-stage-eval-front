@@ -1,0 +1,88 @@
+<div class="sidebar" data-color="purple" data-background-color="black" data-image="./assets/img/sidebar-2.jpg">
+    <!--
+    Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+    Tip 2: you can also add an image using data-image tag
+-->
+    <div class="logo">
+      <a href="#" class="simple-text logo-normal">
+        <img src="assets/img/logo.png" alt="Proxym" width="220px" height="80px">
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="nav-item  ">
+          <a class="nav-link" [routerLink]="['proxym']">
+            <i class="material-icons">dashboard</i>
+            <p>Présentation de PROXYM</p>
+          </a>
+        </li>
+        <li class="nav-item" *ngIf="isLoggedIn">
+          <a class="nav-link" [routerLink]="['profil']">
+            <i class="material-icons">person</i>
+            <p>{{username}}</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard || showRhBoard">
+          <a class="nav-link" [routerLink]="['list-users']">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <p>La liste des utilisateurs</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRpBoard">
+          <a class="nav-link" [routerLink]="['list-users-pole']">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <p>La liste des utilisateurs</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRpBoard">
+          <a class="nav-link" [routerLink]="['list-eval-pole']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter les évaluations</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRhBoard">
+          <a class="nav-link" [routerLink]="['planif-eval']">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <p>Planifier une évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRhBoard">
+          <a class="nav-link" [routerLink]="['list-evals']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter les évaluations</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['list-poles']">
+            <i class="fa fa-th-large" aria-hidden="true"></i>
+            <p>La liste des pôles</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showSuperBoard">
+          <a class="nav-link" [routerLink]="['list-criteres']">
+            <i class="fa fa-list-ul" aria-hidden="true"></i>
+            <p>La liste des critères</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showColabBoard">
+          <a class="nav-link" [routerLink]="['']">
+            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <p>Remplir évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showColabBoard">
+          <a class="nav-link" [routerLink]="['list-evals']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>Consulter évaluation</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="isLoggedIn">
+          <a class="nav-link" [routerLink]="['signout']" (click)="logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <p>Se déconnecter</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
