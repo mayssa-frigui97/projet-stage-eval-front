@@ -1,18 +1,11 @@
+import { EvalTypeEnum } from './../enums/EvalType';
 import { User } from './user';
-
-enum EvalType {
-    RH= 'RH',
-    RP = 'RP',
-    COLABORATEUR = 'COLABORATEUR'
-  }
 
 export class Evaluation {
 
     public id: number;
 
     public date: Date | string;
-
-    public type: EvalType;
 
     public colaborateur : User;
 

@@ -1,3 +1,4 @@
+import { EvalTypeEnum } from './../enums/EvalType';
 import { Evaluation } from "./evaluation";
 
 export class Feedback {
@@ -6,6 +7,10 @@ export class Feedback {
 
     public date: Date;
 
-    public evalutation : Evaluation;
+    public note: number;
+
+    public type: EvalTypeEnum;
+
+    public evaluation : Evaluation;
 
 }

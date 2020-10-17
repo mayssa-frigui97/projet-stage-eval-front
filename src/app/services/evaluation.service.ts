@@ -10,7 +10,6 @@ import { catchError, tap } from 'rxjs/operators';
 })
 export class EvaluationService {
 
-  evaluations: Evaluation[];
 
   constructor(private http: HttpClient) {
   }
@@ -24,9 +23,14 @@ export class EvaluationService {
     return this.http.get<Evaluation[]> (url, this.httpOptions);
   }
 
-  getEvaluationsByPole(id: number) :Observable<Evaluation[]>{
-    const url =`${environment.apiUrl}/evaluation/pole/${id}`;
+  getEvaluationsByPole(PoleId: number) :Observable<Evaluation[]>{
+    const url =`${environment.apiUrl}/evaluation/?pole=${PoleId}`;
     return this.http.get<Evaluation[]>(url, this.httpOptions);
+  }
+
+  getEvaluationByCol(idCol: number) :Observable<Evaluation>{
+    const url =`${environment.apiUrl}/evaluation/colaborateur/${idCol}`;
+    return this.http.get<Evaluation>(url, this.httpOptions);
   }
 
   getEvaluation(id : number):Observable<Evaluation>{

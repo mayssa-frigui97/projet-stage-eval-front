@@ -1,0 +1,14 @@
+
+  th{
+    padding: 5px;
+    text-align: left;    
+  }
+  td{
+      text-align: right;
+      padding: 5px;
+  }
+
+  .btn.btn-primary{
+    margin-top: 45%!important;
+    float: left!important;
+  }

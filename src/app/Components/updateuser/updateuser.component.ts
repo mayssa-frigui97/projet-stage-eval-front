@@ -39,6 +39,7 @@ export class UpdateuserComponent implements OnInit {
     this.userserviceService.getUser(id)
       .subscribe(user => {
         user.date_emb = datePipe.transform(user.date_emb, 'yyyy-MM-dd');
+        user.date_naiss = datePipe.transform(user.date_naiss, 'yyyy-MM-dd');
         this.user = user
       });
   }

@@ -31,6 +31,11 @@ import {MatSelectModule} from '@angular/material/select';
 import { UpdateEvaluationComponent } from './components/rh/update-evaluation/update-evaluation.component';
 import { PlanifEvaluationComponent } from './Components/rh/planif-evaluation/planif-evaluation.component';
 import { ListEvalPoleComponent } from './components/rp/list-eval-pole/list-eval-pole.component';
+import { ConsulterEvalComponent } from './components/colaborateur/consulter-eval/consulter-eval.component';
+import { RemplirEvalComponent } from './components/colaborateur/remplir-eval/remplir-eval.component';
+import { SignoutComponent } from './Components/components Commun/signout/signout.component';
+import { ConsulterEvalDetailComponent } from './components/consulter-eval-detail/consulter-eval-detail.component';
+import { AjouterFeedbackComponent } from './components/ajouter-feedback/ajouter-feedback.component';
 registerLocaleData(localeFr);
 
 @NgModule({
@@ -58,7 +63,12 @@ registerLocaleData(localeFr);
     PlanifEvaluationComponent,
     ConsulterEvaluationComponent,
     UpdateEvaluationComponent,
-    ListEvalPoleComponent
+    ListEvalPoleComponent,
+    ConsulterEvalComponent,
+    RemplirEvalComponent,
+    SignoutComponent,
+    ConsulterEvalDetailComponent,
+    AjouterFeedbackComponent
   ],
   imports: [
     BrowserModule,

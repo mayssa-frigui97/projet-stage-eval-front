@@ -27,11 +27,6 @@ export class PoleService {
     return this.http.get<Pole[]> (url, this.httpOptions);
   }
 
-  getUsersOfPole(id: number) :Observable<User[]>{
-    const url =`${environment.apiUrl}/poles/users/${id}`;
-    return this.http.get<User[]>(url, this.httpOptions);
-  }
-
   getPole(id : number):Observable<Pole>{
     const url =`${environment.apiUrl}/poles/${id}`;
     return this.http.get<Pole>(url,this.httpOptions);

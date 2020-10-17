@@ -18,12 +18,11 @@ export class ListEvalPoleComponent implements OnInit {
 
   constructor(
     private evaluationService: EvaluationService,
-    private tokenService: TokenStorageService,
-    private router: Router) { }
+    private tokenService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.pole = this.tokenService.getUser().pole;
-    this.evaluationService.getEvaluationsByPole(this.tokenService.getUser().id).subscribe(
+    this.evaluationService.getEvaluationsByPole(this.pole.id).subscribe(
       (evaluations) => {
         this.evaluations=evaluations;
       },
@@ -33,19 +32,5 @@ export class ListEvalPoleComponent implements OnInit {
       }
     );
   }
-
-  deleteEvaluation(evaluation: Evaluation){
-    this.evaluations = this.evaluations.filter(u => u !== evaluation);
-    this.evaluationService.deleteEvaluation(evaluation).subscribe(
-      () => {
-        this.router.navigate(['list-Eval-pole']);
-      },
-      (error) => {
-        alert(`Problème de connexion à votre serveur.`);
-        console.log(error);
-      }
-      )
-  }
-
 
 }

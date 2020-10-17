@@ -1,0 +1,19 @@
+
+.fa{
+  width: 35px;
+  height: 35px;
+  font-size: medium;
+}
+.btn{
+  border: none;
+  padding: 7px!important;
+  cursor: pointer;
+}
+.pull-right{
+  padding: 15px;
+  float: right!important;
+}
+
+.card-plain{
+  margin-bottom: 5px!important;
+}

@@ -14,6 +14,12 @@ button{
   cursor: pointer;
 }
 
+.btn{
+  border: none;
+  padding: 7px!important;
+  cursor: pointer;
+}
+
 .pull-right{
   padding: 15px;
   float: right!important;

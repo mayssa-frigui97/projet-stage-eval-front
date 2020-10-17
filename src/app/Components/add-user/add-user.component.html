@@ -10,7 +10,7 @@
               <h4 class="card-title">Ajouter un utilisateur</h4>
             </div>
             <div class="card-body">
-              <form #formulaire="ngForm">
+              <form #formulaire="ngForm" name="form" >
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
@@ -21,7 +21,12 @@
                 <div class="col-md-4">
                     <div class="form-group">
                         <label for="password">Mot de passe:</label>
-                        <input required id="password" class="form-control" type="password" ngModel name="password">
+                        <input required id="password" class="form-control" minlength="4" #password="ngModel" [(ngModel)]="formulaire.password" type="password" name="password">
+                        <div class=" alert alert-danger" *ngIf="password.invalid && password.touched" >
+                          <div *ngIf="password.errors.minlength">
+                            Le mot de passe doit avoir au minimum 4 caractéres !
+                          </div>
+                        </div>
                     </div>
                 </div>
                   <div class="col-md-4">
@@ -46,8 +51,8 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                            <label for="age">Âge :</label>
-                            <input required id="age" class="form-control" type="number" min="0" max="70" ngModel name="age">
+                            <label for="dateNaiss">Date naissance :</label>
+                            <input required id="dateNaiss" class="form-control" type="date" ngModel name="dateNaiss">
                         </div>
                       </div>
                 </div><br>
@@ -78,12 +83,6 @@
                             <input required id="date_emb" class="form-control" type="date" ngModel name="date_emb">
                         </div>
                     </div>
-                    <!-- <div class="col-md-3">
-                        <div class="form-group">
-                            <label for="pole">Pôle :</label>
-                            <input id="pole" class="form-control" type="number" ngModel name="pole">
-                        </div>
-                    </div> -->
                     <div class="col-md-5">
                       <div class="btn1">
                           <label for="role">Pôle : &nbsp;&nbsp;</label><br>

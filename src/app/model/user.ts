@@ -11,7 +11,7 @@ export class User {
     
     public cin: number;
 
-    public age: number;
+    public date_naiss: Date | string;
     
     public poste: string;
 

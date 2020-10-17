@@ -20,6 +20,7 @@ export class AddUserComponent implements OnInit {
   pole : Pole;
   errorMessage='';
   userRole = UserRoleEnum;
+  
 
   constructor(
     private UserService : UserserviceService,
@@ -58,7 +59,7 @@ export class AddUserComponent implements OnInit {
       nom: formulaire.value.nom,
       prenom: formulaire.value.prenom,
       cin: formulaire.value.cin,
-      age: formulaire.value.age,
+      date_naiss: formulaire.value.dateNaiss,
       poste: formulaire.value.poste,
       salaire: formulaire.value.salaire,
       avatar: formulaire.value.avatar,
@@ -66,6 +67,7 @@ export class AddUserComponent implements OnInit {
       role: formulaire.value.role,
       pole: formulaire.value.pole
     }
+    
     this.UserService.addUser(credentials).subscribe(
       () => {
         console.log(credentials);

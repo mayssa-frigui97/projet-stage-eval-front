@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="col-md-7">
+        <div class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header card-header-primary">
+                                <h4 class="card-title">Évaluation de {{evalue.prenom| titlecase}} {{evalue.nom| uppercase}} :</h4>
+                            </div>
+                            <div class="card-body">
+                                <form #formulaire="ngForm" name="form">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="note">Note:</label>
+                                                <input required id="note" class="form-control" type="number" min="0"
+                                                    max="5" ngModel name="note">
+                                            </div>
+                                        </div>
+                                    </div><br>
+                                    <button [disabled]="formulaire.invalid" type="submit"
+                                        class="btn btn-primary pull-right"
+                                        (click)="addFeedback(formulaire)">Envoyer</button>&nbsp;&nbsp;
+                                    <button class="btn btn-primary pull-right" (click)="retour()">Retour</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="card-container">
+            <div class="card">
+                <div class="front">
+                    <div class="cover">
+                        <img src="../../../assets/img/rotating_card_thumb3.png" />
+                    </div>
+                    <div class="user">
+                        <img class="img-circle" src="../../../assets/img/{{evalue.avatar}}" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h3 class="name"><strong>{{evalue.prenom| titlecase}} {{evalue.nom| uppercase}}</strong> </h3>
+                            <p class="profession">{{evalue.poste}}</p>
+
+                            <h6 class="text-center"><strong>Pôle :</strong>{{evalue.pole.nom}}</h6>
+                        </div>
+                        <div class="footer">
+                            <div class="rating">
+                                <i class="fa fa-mail-forward"></i> Plus d'information 
+                            </div>
+                        </div>
+                    </div>
+                </div> <!-- end front panel -->
+                <div class="back">
+                    <div class="cover">
+                        <img src="../../../assets/img/rotating_card_thumb3.png" />
+                    </div>
+                    <div class="user">
+                        <img class="img-circle" src="../../../assets/img/{{evalue.avatar}}" />
+                    </div>
+                    <div class="content">
+                        <div class="main">
+                            <h4 class="text-center"><strong>{{evalue.prenom| titlecase}} {{evalue.nom| uppercase}}</strong>
+                            </h4><br>
+                            <div class="container-fluid">
+                                <h6><strong style="color:grey">Id : </strong>{{evalue.id}}</h6>
+                                <h6><strong style="color:grey">CIN : </strong>{{evalue.cin}}</h6>
+                                <h6><strong style="color:grey">Date naissance : </strong>{{evalue.date_naiss| date:  'dd/MM/yyyy'}}</h6>
+                                <h6><strong style="color:grey">Poste : </strong>{{evalue.poste}}</h6>
+                                <h6><strong style="color:grey">Pôle : </strong>{{evalue.pole.nom}}</h6>
+                                <h6><strong style="color:grey">Salaire : </strong>{{evalue.salaire}}</h6>
+                                <h6><strong style="color:grey">Date d'embauche : </strong>{{evalue.date_emb | date:  'dd/MM/yyyy'}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

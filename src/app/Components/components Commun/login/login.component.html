@@ -69,7 +69,7 @@
             role="alert"
             *ngIf="f.submitted && username.invalid"
           >
-            Username is required!
+            Le nom utilisateur est manquant!
           </div>
         </div>
         <div class="form-group">
@@ -88,7 +88,7 @@
             role="alert"
             *ngIf="f.submitted && password.invalid"
           >
-            <div *ngIf="password.errors.required">Password is required</div>
+            <div *ngIf="password.errors.required">Le mot de passe est manquant!</div>
             <div *ngIf="password.errors.minlength">
                 Le mot de passe doit avoir au minimum 4 caractéres !
             </div>

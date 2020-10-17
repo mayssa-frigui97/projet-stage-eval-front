@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "start:local": "ng serve"
+    "start:local": "ng serve --open"
   },
   "private": true,
   "dependencies": {

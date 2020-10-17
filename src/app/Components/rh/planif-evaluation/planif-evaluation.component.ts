@@ -75,7 +75,6 @@ export class PlanifEvaluationComponent implements OnInit {
   addEval(formulaire: NgForm):void{
     const credentials = {
       date: formulaire.value.dateEval, 
-      type: formulaire.value.type,
       rh: formulaire.value.rh,
       rp: formulaire.value.rp,
       colaborateur: formulaire.value.col

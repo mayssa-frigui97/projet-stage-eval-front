@@ -18,7 +18,6 @@ export class ListUsersPoleComponent implements OnInit {
   user : User;
 
   constructor(
-    private poleService : PoleService,
     private tokenService : TokenStorageService,
     private userService : UserserviceService,
     private router: Router
@@ -28,7 +27,7 @@ export class ListUsersPoleComponent implements OnInit {
     this.pole = this.tokenService.getUser().pole;
     console.log("id pole:",this.pole.id);
 
-    this.poleService.getUsersOfPole(this.pole.id).subscribe(
+    this.userService.getUsersOfPole(this.pole.id).subscribe(
       (users) => {
         this.users=users;
       },

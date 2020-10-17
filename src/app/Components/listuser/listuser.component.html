@@ -23,7 +23,7 @@
                             CIN
                         </th>
                         <th>
-                            Âge
+                            Date naissance
                         </th>
                         <th>
                             Poste
@@ -33,9 +33,6 @@
                         </th>
                         <th>
                             Date d'embauche
-                        </th>
-                        <th>
-                            Avatar
                         </th>
                         <th>
                             Rôle
@@ -62,7 +59,7 @@
                                 {{user.cin}}
                             </td>
                             <td>
-                                {{user.age}}
+                                {{user.date_naiss | date:  'dd/MM/yyyy'}}
                             </td>
                             <td>
                                 {{user.poste}}
@@ -71,10 +68,7 @@
                                 {{user.salaire}}
                             </td>
                             <td>
-                                {{user.date_emb}}
-                            </td>
-                            <td>
-                                {{user.avatar}}
+                                {{user.date_emb | date:  'dd/MM/yyyy'}}
                             </td>
                             <td>
                                 {{user.role}}

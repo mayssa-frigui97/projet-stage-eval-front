@@ -27,6 +27,11 @@ export class UserserviceService {
     return this.http.get<User[]> (url, this.httpOptions);
   }
 
+  getUsersOfPole(PoleId : number): Observable<User[]>{
+    const url =`${environment.apiUrl}/users/?pole=${PoleId}`;
+    return this.http.get<User[]> (url, this.httpOptions);
+  }
+
   getUser(id : number):Observable<User>{
     const url =`${environment.apiUrl}/users/${id}`;
     return this.http.get<User>(url,this.httpOptions);

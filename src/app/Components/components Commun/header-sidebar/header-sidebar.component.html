@@ -38,19 +38,19 @@
         <li class="nav-item " *ngIf="showRpBoard">
           <a class="nav-link" [routerLink]="['list-eval-pole']">
             <i class="fa fa-address-book" aria-hidden="true"></i>
-            <p>Consulter les évaluations</p>
+            <p>La liste des évaluations</p>
+          </a>
+        </li>
+        <li class="nav-item " *ngIf="showRhBoard">
+          <a class="nav-link" [routerLink]="['list-evals']">
+            <i class="fa fa-address-book" aria-hidden="true"></i>
+            <p>La liste des évaluations</p>
           </a>
         </li>
         <li class="nav-item " *ngIf="showRhBoard">
           <a class="nav-link" [routerLink]="['planif-eval']">
             <i class="fa fa-pencil" aria-hidden="true"></i>
             <p>Planifier une évaluation</p>
-          </a>
-        </li>
-        <li class="nav-item " *ngIf="showRhBoard">
-          <a class="nav-link" [routerLink]="['list-evals']">
-            <i class="fa fa-address-book" aria-hidden="true"></i>
-            <p>Consulter les évaluations</p>
           </a>
         </li>
         <li class="nav-item " *ngIf="showSuperBoard">
@@ -66,23 +66,23 @@
           </a>
         </li>
         <li class="nav-item " *ngIf="showColabBoard">
-          <a class="nav-link" [routerLink]="['']">
+          <a class="nav-link" [routerLink]="['add-eval']">
             <i class="fa fa-pencil" aria-hidden="true"></i>
-            <p>Remplir évaluation</p>
+            <p>Ajouter une évaluation</p>
           </a>
         </li>
         <li class="nav-item " *ngIf="showColabBoard">
-          <a class="nav-link" [routerLink]="['list-evals']">
+          <a class="nav-link" [routerLink]="['consulter-eval']">
             <i class="fa fa-address-book" aria-hidden="true"></i>
             <p>Consulter évaluation</p>
           </a>
         </li>
-        <li class="nav-item " *ngIf="isLoggedIn">
+        <!-- <li class="nav-item " *ngIf="isLoggedIn">
           <a class="nav-link" [routerLink]="['signout']" (click)="logout()">
             <i class="fa fa-sign-out" aria-hidden="true"></i>
             <p>Se déconnecter</p>
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

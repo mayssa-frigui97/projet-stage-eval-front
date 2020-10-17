@@ -1,0 +1,17 @@
+img{
+    border-radius: 50%;
+    width: 150px;
+    height: 130px;
+    margin: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 25%;
+}
+
+.alert.alert-danger{
+    text-align: center!important;
+    font-size: 18px;
+    margin-left: 25px;
+    margin-right: 25px;
+}

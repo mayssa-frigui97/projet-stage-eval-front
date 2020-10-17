@@ -46,8 +46,8 @@
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
-                            <label for="age">Âge :</label>
-                            <input required id="age" class="form-control" type="number" min="0" max="70" ngModel name="age">
+                            <label for="dateNaiss">Date naissance :</label>
+                            <input required id="dateNaiss" class="form-control" type="date" ngModel name="dateNaiss">
                         </div>
                       </div>
                 </div><br>
@@ -81,7 +81,8 @@
                     <div class="col-md-4">
                         <div class="btn1">
                             <label for="role">Rôle : </label><br>
-                            <select ngModel name="role" id="role">
+                            <select class="custom-select custom-select-md" ngModel name="role" id="role">
+                                <option disabled selected>Selectionner le rôle</option>
                                 <option [value]="userRole.SUPER">Super</option>
                                 <option [value]="userRole.RH">RH</option>
                                 <option [value]="userRole.RP">Responsable pôle </option>

@@ -1,0 +1,51 @@
+<div class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+          <div class="card">
+            <div class="card-header card-header-primary">
+              <h4 class="card-title">Ajouter une évaluation </h4>
+            </div>
+            <div class="card-body" *ngIf="evaluation">
+              <form #formulaire="ngForm">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="dateEval" class="bmd-label-floating">Date d'évaluation :</label>
+                      {{evaluation.date | date:  'dd/MM/yyyy'}}
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="type">
+                          Évaluateur : 
+                        </label>
+                        {{colaborateur.prenom| titlecase}} {{colaborateur.nom| uppercase}}
+                    </div>
+                  </div>
+                </div><br>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="note">Note:</label>
+                      <input required id="note" class="form-control" type="number" min="0" max="5" ngModel name="note">
+                      <div class=" alert alert-danger" *ngIf="note.invalid && note.touched" >
+                        <div *ngIf="note > 5">
+                          La note doit entre comprise entre 0 et 5 !
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button [disabled]="formulaire.invalid" type="submit" class="btn btn-primary pull-right" (click)="enregistrer(formulaire)">Enregistrer la note</button>
+                <div class="clearfix"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
